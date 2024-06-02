@@ -34,11 +34,12 @@
             btnAtualizar = new Button();
             btnExcluir = new Button();
             btnConsultar = new Button();
-            nudLimite = new DomainUpDown();
             btLimiteMedio = new Button();
             btnAtualizarExibir = new Button();
-            dataGridView1 = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            dgvClientes = new DataGridView();
+            nudLimite = new NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)dgvClientes).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudLimite).BeginInit();
             SuspendLayout();
             // 
             // btnCriar
@@ -49,6 +50,7 @@
             btnCriar.TabIndex = 0;
             btnCriar.Text = "Criar";
             btnCriar.UseVisualStyleBackColor = true;
+            btnCriar.Click += btnCriar_Click;
             // 
             // btnInserir
             // 
@@ -95,14 +97,6 @@
             btnConsultar.Text = "Consultar";
             btnConsultar.UseVisualStyleBackColor = true;
             // 
-            // nudLimite
-            // 
-            nudLimite.Location = new Point(12, 186);
-            nudLimite.Name = "nudLimite";
-            nudLimite.Size = new Size(75, 23);
-            nudLimite.TabIndex = 6;
-            nudLimite.Text = "0";
-            // 
             // btLimiteMedio
             // 
             btLimiteMedio.Location = new Point(12, 215);
@@ -121,23 +115,33 @@
             btnAtualizarExibir.Text = "Atualizar e Exibir";
             btnAtualizarExibir.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dgvClientes
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(93, 12);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(695, 329);
-            dataGridView1.TabIndex = 9;
+            dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvClientes.Location = new Point(93, 14);
+            dgvClientes.Name = "dgvClientes";
+            dgvClientes.Size = new Size(695, 327);
+            dgvClientes.TabIndex = 9;
+            // 
+            // nudLimite
+            // 
+            nudLimite.Increment = new decimal(new int[] { 1000, 0, 0, 0 });
+            nudLimite.Location = new Point(12, 186);
+            nudLimite.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
+            nudLimite.Name = "nudLimite";
+            nudLimite.Size = new Size(74, 23);
+            nudLimite.TabIndex = 10;
+            nudLimite.Value = new decimal(new int[] { 10000, 0, 0, 0 });
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 352);
-            Controls.Add(dataGridView1);
+            Controls.Add(nudLimite);
+            Controls.Add(dgvClientes);
             Controls.Add(btnAtualizarExibir);
             Controls.Add(btLimiteMedio);
-            Controls.Add(nudLimite);
             Controls.Add(btnConsultar);
             Controls.Add(btnExcluir);
             Controls.Add(btnAtualizar);
@@ -146,7 +150,8 @@
             Controls.Add(btnCriar);
             Name = "Form1";
             Text = "Manipulador de Banco de Dados";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dgvClientes).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudLimite).EndInit();
             ResumeLayout(false);
         }
 
@@ -158,9 +163,9 @@
         private Button btnAtualizar;
         private Button btnExcluir;
         private Button btnConsultar;
-        private DomainUpDown nudLimite;
         private Button btLimiteMedio;
         private Button btnAtualizarExibir;
-        private DataGridView dataGridView1;
+        private DataGridView dgvClientes;
+        private NumericUpDown nudLimite;
     }
 }
