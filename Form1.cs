@@ -96,6 +96,28 @@ namespace Banco_Dados
             }
         }
 
+        private void AtualizarBancoDeDados(string caminho, int idCliente)
+        {
+            using (SqliteConnection db = new SqliteConnection($"Filename={caminho}"))
+            {
+                db.Open();
+                StringBuilder sb = new StringBuilder();
+                sb.Append("UPDATE Cliente SET ");
+                sb.Append("Nome = @Nome, LimiteCredito = @LimiteCredito ");
+                sb.Append("WHERE IdCliente = @IdCliente");
+                SqliteCommand sql = new SqliteCommand(sb.ToString(), db);
+
+                sql.Parameters.AddWithValue("@Nome", $"Cliente {idCliente} Modificado");
+                sql.Parameters.AddWithValue("@LimiteCredito", 100000);
+                sql.Parameters.AddWithValue("@IdCliente", idCliente);
+                if(sql.ExecuteNonQuery() > 0)
+                {
+                    MessageBox.Show($"Cliente {idCliente} atualizado com sucesso!");
+                }
+
+            }
+        }
+
         private void btnCriar_Click(object sender, EventArgs e)
         {
             CriarBancoDeDados(caminhoBD);
@@ -110,6 +132,12 @@ namespace Banco_Dados
         {
             List<Cliente> clientes = LerBancoDeDados(caminhoBD);
             dgvClientes.DataSource = clientes;
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            int idCliente = Convert.ToInt32(dgvClientes.SelectedCells[0].Value);
+            AtualizarBancoDeDados(caminhoBD, idCliente);
         }
     }
 }

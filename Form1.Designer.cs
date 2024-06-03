@@ -80,6 +80,7 @@
             btnAtualizar.TabIndex = 3;
             btnAtualizar.Text = "Atualizar";
             btnAtualizar.UseVisualStyleBackColor = true;
+            btnAtualizar.Click += btnAtualizar_Click;
             // 
             // btnExcluir
             // 
@@ -122,6 +123,7 @@
             dgvClientes.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvClientes.Location = new Point(93, 14);
             dgvClientes.Name = "dgvClientes";
+            dgvClientes.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvClientes.Size = new Size(695, 327);
             dgvClientes.TabIndex = 9;
             // 
