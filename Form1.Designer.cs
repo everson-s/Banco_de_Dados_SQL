@@ -60,6 +60,7 @@
             btnInserir.TabIndex = 1;
             btnInserir.Text = "Inserir";
             btnInserir.UseVisualStyleBackColor = true;
+            btnInserir.Click += btnInserir_Click;
             // 
             // btnLer
             // 
@@ -69,6 +70,7 @@
             btnLer.TabIndex = 2;
             btnLer.Text = "Ler";
             btnLer.UseVisualStyleBackColor = true;
+            btnLer.Click += btnLer_Click;
             // 
             // btnAtualizar
             // 
